@@ -1,0 +1,11 @@
+services:
+  landing:
+    build: .
+    ports:
+      - "127.0.0.1:${LANDING_PORT:-8091}:8080"
+    restart: unless-stopped
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
